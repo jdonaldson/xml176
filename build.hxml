@@ -1,0 +1,5 @@
+-cp ./src/test/haxe
+-cp ./src/main/haxe
+-main Test
+-x out
+-D debug
