@@ -6,6 +6,7 @@ bin
 *.iml
 *.ipr
 out/
+out.n
 
 .DS_Store
 Thumbs.db

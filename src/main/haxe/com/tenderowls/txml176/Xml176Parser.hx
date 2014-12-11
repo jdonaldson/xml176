@@ -22,6 +22,7 @@
 package com.tenderowls.txml176;
 
 using StringTools;
+import com.tenderowls.txml176.Xml176Document.Pos;
 
 @:enum
 abstract State(Int)
@@ -81,45 +82,6 @@ class StateUtil {
 
 
 
-class Xml176Document {
-
-    public var document(default,null):Xml;
-
-    var ePosInfos: Map<Xml, Pos>;
-    var aPosInfos: Map<Xml, Map<String, Pos>>;
-    var tdata:     Map<Xml, Array<String>>;
-    var tdataAtt:  Map<Xml, Map<String, String>>;
-
-    public function new(doc:Xml, ePosInfos, aPosInfos, tdata, tdataAtt:Map<Xml, Map<String, String>>) {
-        this.document = doc;
-        this.ePosInfos = ePosInfos;
-        this.aPosInfos = aPosInfos;
-        this.tdata = tdata;
-        this.tdataAtt = tdataAtt;
-    }
-
-    public function getNodePosition(node:Xml):Pos {
-        return ePosInfos.get(node);
-    }
-
-    public function getAttrPosition(node:Xml, attr:String):Pos {
-        return aPosInfos.get(node).get(attr);
-    }
-
-    public function getTemplates(node:Xml):Array<String> {
-        return tdata.get(node);
-    }
-
-    public function getAttributeTemplate(node:Xml, attr:String):String {
-        // trace('----');
-        // trace(tdataAtt + " is the value for tdataAtt");
-        // trace('----');
-        // trace(node + " is the value for node");
-        // trace('----');
-        var node_data = tdataAtt.get(node);
-        return node_data != null ? node_data.get(attr) : null;
-    }
-}
 
 class Xml176Parser
 {
@@ -519,5 +481,4 @@ class Xml176Parser
     }
 }
 
-typedef Pos = { from:Int, ?to:Int }
 

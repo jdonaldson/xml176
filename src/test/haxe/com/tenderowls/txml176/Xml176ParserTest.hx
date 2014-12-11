@@ -1,6 +1,6 @@
 package com.tenderowls.txml176;
 
-import com.tenderowls.txml176.Xml176Parser.Xml176Document;
+import com.tenderowls.txml176.Xml176Document;
 
 class Xml176ParserTest extends haxe.unit.TestCase {
 
